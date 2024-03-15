@@ -19,6 +19,10 @@ namespace DocGen.Data
         public DocGenDbContext(DbContextOptions<DocGenDbContext> options)
         : base(options) { }
 
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

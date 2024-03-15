@@ -1,3 +1,5 @@
+using DocGen.Core.Contracts;
+using DocGen.Core.Services;
 using DocGen.Data;
 
 using Microsoft.AspNetCore.Identity;
@@ -36,6 +38,10 @@ namespace DocGen.Api
             })
                 .AddEntityFrameworkStores<DocGenDbContext>()
                 .AddDefaultTokenProviders(); ;
+
+            builder.Services.AddScoped<IModelFactory, ModelFactory>();
+            builder.Services.AddScoped<ICompanyService, CompanyService>();
+            builder.Services.AddScoped<IClientService, ClientService>();
 
             var app = builder.Build();
 

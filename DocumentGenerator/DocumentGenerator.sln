@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocGen.Data", "DocGen.Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocGen.Common", "DocGen.Common\DocGen.Common.csproj", "{293D12D5-4D88-40E4-8A28-2A3F7EAE6662}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocGen.Dtos", "DocGen.Dtos\DocGen.Dtos.csproj", "{0F8FF4E7-E182-4784-8E60-E4383135899F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{293D12D5-4D88-40E4-8A28-2A3F7EAE6662}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293D12D5-4D88-40E4-8A28-2A3F7EAE6662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293D12D5-4D88-40E4-8A28-2A3F7EAE6662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F8FF4E7-E182-4784-8E60-E4383135899F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8FF4E7-E182-4784-8E60-E4383135899F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8FF4E7-E182-4784-8E60-E4383135899F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8FF4E7-E182-4784-8E60-E4383135899F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

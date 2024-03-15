@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DocGen.Common\DocGen.Common.csproj" />
     <ProjectReference Include="..\DocGen.Data\DocGen.Data.csproj" />
+    <ProjectReference Include="..\DocGen.Dtos\DocGen.Dtos.csproj" />
   </ItemGroup>
 
 </Project>

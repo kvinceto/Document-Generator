@@ -30,6 +30,9 @@ namespace DocGen.Data.Models
         [Unicode(true)]
         public string? Info { get; set; }
 
+        [Required]
+        public bool IsDeleted { get; set; }
+
         public virtual ICollection<Invoice> Invoices { get; set; } = new HashSet<Invoice>();
 
     }
