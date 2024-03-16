@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using DocGen.Data.Models;
+﻿using DocGen.Data.Models;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -65,6 +59,54 @@ namespace DocGen.Data
                 i.Property(i => i.DateOfIsue).HasColumnType("datetime2");
                 i.Property(i => i.DateOfServiceProvided).HasColumnType("datetime2");
                 i.Property(i => i.DueDate).HasColumnType("datetime2");
+            });
+
+            //Seed first user
+            IdentityUser user = new IdentityUser()
+            {
+                Id = "868decd8-dfa1-44ac-a3b7-eae0d513a199",
+                UserName = "Krasimir",
+                NormalizedUserName = "KRASIMIR",
+                Email = "test@test.bg",
+                NormalizedEmail = "TEST@TEST.BG",
+                EmailConfirmed = true,
+                ConcurrencyStamp = "868decd8-dfa1-44ac-a3b7-eae0d513a199",
+                PhoneNumber = null,
+                PhoneNumberConfirmed = true,
+                SecurityStamp = "868decd8-dfa1-44ac-a3b7-eae0d513a199",
+                LockoutEnabled = false,
+                TwoFactorEnabled = false,
+                AccessFailedCount = 0,
+            };
+
+            var hasher = new PasswordHasher<IdentityUser>();
+            user.PasswordHash = hasher.HashPassword(user, "Krasito123");
+
+            builder.Entity<IdentityUser>(u =>
+            {
+                u.HasData(user);
+            });
+
+            //Seed roles
+            builder.Entity<IdentityRole>(r =>
+            {
+                r.HasData(new List<IdentityRole>()
+                {
+                    new IdentityRole()
+                    {
+                        Id = "762e22de-7afb-42c6-afbc-a14435f446a0",
+                        Name = UserRoleName,
+                        ConcurrencyStamp = "762e22de-7afb-42c6-afbc-a14435f446a0",
+                        NormalizedName = UserRoleName
+                    },
+                    new IdentityRole()
+                    {
+                         Id = "6bb41b5a-8b5b-4378-a739-3ad34c8976a3",
+                        Name = AdminRoleName,
+                        ConcurrencyStamp = "6bb41b5a-8b5b-4378-a739-3ad34c8976a3",
+                        NormalizedName = AdminRoleName
+                    }
+                });
             });
 
             base.OnModelCreating(builder);

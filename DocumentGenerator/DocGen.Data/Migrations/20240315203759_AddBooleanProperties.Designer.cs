@@ -4,6 +4,7 @@ using DocGen.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DocGen.Data.Migrations
 {
     [DbContext(typeof(DocGenDbContext))]
-    partial class DocGenDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240315203759_AddBooleanProperties")]
+    partial class AddBooleanProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +58,7 @@ namespace DocGen.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Client");
                 });
 
             modelBuilder.Entity("DocGen.Data.Models.Company", b =>
@@ -91,7 +94,7 @@ namespace DocGen.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Company");
                 });
 
             modelBuilder.Entity("DocGen.Data.Models.Invoice", b =>
@@ -171,7 +174,7 @@ namespace DocGen.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Invoice");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<string>", b =>
@@ -181,10 +184,6 @@ namespace DocGen.Data.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -203,10 +202,6 @@ namespace DocGen.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole<string>");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -388,52 +383,11 @@ namespace DocGen.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<string>");
-
-                    b.HasDiscriminator().HasValue("IdentityRole");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "762e22de-7afb-42c6-afbc-a14435f446a0",
-                            ConcurrencyStamp = "762e22de-7afb-42c6-afbc-a14435f446a0",
-                            Name = "USER",
-                            NormalizedName = "USER"
-                        },
-                        new
-                        {
-                            Id = "6bb41b5a-8b5b-4378-a739-3ad34c8976a3",
-                            ConcurrencyStamp = "6bb41b5a-8b5b-4378-a739-3ad34c8976a3",
-                            Name = "ADMIN",
-                            NormalizedName = "ADMIN"
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser<string>");
 
                     b.HasDiscriminator().HasValue("IdentityUser");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "868decd8-dfa1-44ac-a3b7-eae0d513a199",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "868decd8-dfa1-44ac-a3b7-eae0d513a199",
-                            Email = "test@test.bg",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "TEST@TEST.BG",
-                            NormalizedUserName = "KRASIMIR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOSOT95a92GMkfxkSyRDAc3w464tBLiNi758Ej+jxAqtJT43l9Y2nW2VooYIHTWm+g==",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "868decd8-dfa1-44ac-a3b7-eae0d513a199",
-                            TwoFactorEnabled = false,
-                            UserName = "Krasimir"
-                        });
                 });
 
             modelBuilder.Entity("DocGen.Data.Models.Invoice", b =>
