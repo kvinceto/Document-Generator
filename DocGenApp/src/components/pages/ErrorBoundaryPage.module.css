@@ -1,0 +1,40 @@
+.page {
+  background-image: linear-gradient(
+      rgba(36, 42, 46, 0.8),
+      rgba(36, 42, 46, 0.8)
+    ),
+    url("../../public/settings-gmap-api-error-2.gif");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 2.2rem;
+  color: var(--color-link-light-hover);
+}
+.friendlyMessage {
+  font-size: 1.8rem;
+  color: var(--color-border);
+}
+.errorMessage {
+  font-size: 1.6rem;
+  color: var(--button-font-color);
+}
+.link {
+  display: inline-block;
+  background-color: var(--button-gray);
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  font-size: 1.8rem;
+  color: var(--color-link-light);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #b6b6b698;
+  border-radius: 0.3rem;
+}
