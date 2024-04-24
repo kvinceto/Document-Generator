@@ -64,12 +64,13 @@ namespace DocGen.Api
             builder.Services.AddAuthorization();
             var jwtSecret = builder.Configuration["JwtSecret"];
             var key = Encoding.ASCII.GetBytes(jwtSecret!);
-            builder.Services.AddAuthentication(options =>
+            builder.Services
+                .AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(options =>
+                .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
