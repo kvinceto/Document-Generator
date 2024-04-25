@@ -6,8 +6,6 @@ using DocGen.Dtos.ClientDtos;
 
 using Microsoft.EntityFrameworkCore;
 
-using Moq;
-
 namespace DocGen.Tests
 {
     [TestFixture]
