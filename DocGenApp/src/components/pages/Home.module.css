@@ -2,8 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
   text-align: center;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
   height: auto;
 }
 
@@ -16,8 +20,4 @@
 
 .homeContainer h1 {
   text-transform: uppercase;
-}
-
-.homeContainer p {
-  color: brown;
 }

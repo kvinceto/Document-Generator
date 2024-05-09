@@ -2,7 +2,7 @@ import styles from "./Navigation.module.css";
 
 function Navigation() {
   return (
-    <div>
+    <div className={styles.navDiv}>
       <div>1</div>
       <div>1</div>
       <div>1</div>

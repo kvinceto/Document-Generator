@@ -1,3 +1,4 @@
+import InvoiceTemplate from "../singleComponents/InvoiceTemplate.jsx";
 import Navigation from "../singleComponents/Navigation.jsx";
 import styles from "./Home.module.css";
 
@@ -8,6 +9,7 @@ function Home() {
       <div className={styles.homeContainer}>
         <h1>Free site for generating invoices</h1>
         <p>Try it</p>
+        <InvoiceTemplate />
       </div>
     </section>
   );
